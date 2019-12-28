@@ -1,0 +1,226 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+.card {
+  min-height: 200px;
+  width: calc(100% - 40px);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+  margin: 20px;
+}
+.card div {
+  padding: 10px;
+  border-bottom: 1px solid #dddddd;
+}
+.card .header {
+  font-weight: bold;
+}
+.card .body {
+  height: 200px;
+  overflow-y: scroll;
+}
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: rgb(0, 132, 255);
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+.loading {
+  position: absolute;
+  left: calc(50% - 50px);
+  top: 50%;
+  width: 75px;
+  display: none;
+  transition: 250ms ease-in-out;
+}
+.loading.show {
+  display: block;
+  transition: 250ms ease-in-out;
+}
+.lock {
+  background: #ffffff;
+  opacity: .3;
+}
+.disabled {
+  pointer-events: none;
+  background: #dddddd;
+  color: #aaaaaa;
+}
+ul {
+  list-style: none;
+  padding: 10px;
+  margin: 15px 0;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+}
+#imgPreview {
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.4);
+  padding: 20px;
+  margin-top: 20px;
+  max-width: 450px;
+}
+input[type="file"]#image {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+label, button {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000;
+  background-color: #106BA0;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.3);
+  display: inline-block;
+  transition: all .5s;
+  cursor: pointer;
+  padding: 15px 40px;
+  text-transform: uppercase;
+  width: fit-content;
+  text-align: center;
+}
+button {
+  border: 0;
+}
+.input-file, .img, .range {
+  margin: 20px;
+}
+.classify-text {
+  font-size: 12px;
+  font-weight: bold;
+}
+progress[value] {
+  appearance: none;
+  border: none;
+  width: 100%;
+  height: 20px;
+  background-color: whiteSmoke;
+  border-radius: 3px;
+  box-shadow: 0 2px 3px rgba(0,0,0,.5) inset;
+  color: royalblue;
+  position: relative;
+  margin: 0 0 1.5em; 
+  font-size: 12px;
+}
+progress[value]::-webkit-progress-bar {
+  background-color: whiteSmoke;
+  border-radius: 3px;
+  box-shadow: 0 2px 3px rgba(0,0,0,.5) inset;
+}
+progress[value]::-webkit-progress-value {
+  position: relative;
+  background-size: 35px 20px, 100% 100%, 100% 100%;
+  border-radius:3px;
+  animation: animate-stripes 5s linear infinite;
+}
+progress::-webkit-progress-value {
+  background-image:
+    -webkit-linear-gradient( 135deg, transparent, transparent 33%, rgba(0,0,0,.1) 33%, rgba(0,0,0,.1) 66%, transparent 66%),
+    -webkit-linear-gradient( top, rgba(255, 255, 255, .25), rgba(0,0,0,.2)),
+    -webkit-linear-gradient( left, rgb(34, 85, 253), rgb(100, 167, 255));
+}
+progress:after {
+  content: attr(data-value);
+  color: #000000;
+  position: absolute;
+  right: 5px;
+  top: 3px;
+}
+@keyframes animate-stripes { 
+  100% { 
+    background-position: -100px 0;
+  }
+}
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 7px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  border-radius: 100px;
+}
+.slider:hover {
+  opacity: 1;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: #106BA0;
+  cursor: pointer;
+  border-radius: 100px;
+  transition: 100ms ease-in-out;
+}
+.slider::-webkit-slider-thumb:active {
+  transition: 100ms ease-in-out;
+  height: 20px;
+  width: 20px;
+}
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+.text-range {
+  position: relative;
+  left: 7px;
+  top: -35px;
+  font-size: 10px;
+}
+.range div {
+  margin-bottom: 20px;
+}

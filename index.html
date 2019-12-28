@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Detectando la toxicidad en un texto usando Inteligencia Artificial</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="./style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="loading">
+    <div class="lds-ellipsis">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="input-file">
+      <label for="image">Seleccionar una imagen</label>
+      <input type="file" id="image" accept=".gif,.jpg,.jpeg,.png">
+      <label for="classify" class="lock">&nbsp;</label>
+    </div>
+    <div class="range">
+      <div>Total classes and their probabilities detected. <b>(only Tensorflow.js)</b></div>
+      <input type="range" min="1" max="100" value="1" step="1" class="slider" id="slider" oninput="showValue(this)" />
+      <span class="text-range">1</span>
+    </div>
+    <div class="img">
+      <img id="imgPreview" class="hide" />
+    </div>
+    <div class="card tensorflow">
+      <div class="header">Tensorflow.js</div>
+      <div class="body"></div>
+      <div class="footer">
+        <button onclick="tensorflowObjectDetection()" class="disabled">Object detection</button>
+      </div>
+    </div>
+    <div class="card ibm-watson">
+      <div class="header">IBM Watson</div>
+      <div class="body"></div>
+      <div class="footer">
+        <button onclick="IBMWatsonObjectDetection()" class="disabled">Object detection</button>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@1.0.0"></script>
+  <script src="./index.js"></script>
+</body>
+</html>
